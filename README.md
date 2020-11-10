@@ -39,3 +39,8 @@ sudo systemctl unmask grafana-server.service
 sudo systemctl start grafana-server
 sudo systemctl enable grafana-server.service
 ```
+
+add smartapp to smartthings
+```
+https://github.com/kimiffx/SmartThings/blob/master/smartapps/influxdb-logger/influxdb-logger.groovy
+```
