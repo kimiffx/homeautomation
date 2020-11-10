@@ -44,3 +44,11 @@ add smartapp to smartthings
 ```
 https://github.com/kimiffx/SmartThings/blob/master/smartapps/influxdb-logger/influxdb-logger.groovy
 ```
+
+check data from influxdb
+```
+influx -precision rfc3339 -username grafana -password <password>
+use home
+show measurements
+SELECT * FROM temperature order by time desc limit 10
+```
