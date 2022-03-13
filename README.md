@@ -61,6 +61,7 @@ DROP MEASUREMENT yourmeasurement
 ```
 Backup influxdb
 ```
+sudo du -sh /var/lib/influxdb/data/home
 influxd backup -portable /home/pi/influx_backup/
 scp -r pi@ipaddress:/home/pi/influx_backup localfolder
 ```
