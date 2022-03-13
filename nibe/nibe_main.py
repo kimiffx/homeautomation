@@ -54,7 +54,7 @@ print(values)
 for key in sensor_dict:
    #print(key)
    #print(sensor_dict[key])
-   my_datapoint["measurement"] = "NIBE-1245-8"
+   my_datapoint["measurement"] = "Nibe"
    my_datapoint["tags"] = {'sensor': key}
    my_datapoint["fields"] = {'value': (float((values[sensor_dict[key]])))}
    client.write_points([my_datapoint])

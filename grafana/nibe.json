@@ -91,7 +91,8 @@
           "placement": "bottom"
         },
         "tooltip": {
-          "mode": "single"
+          "mode": "single",
+          "sort": "none"
         }
       },
       "targets": [
@@ -121,7 +122,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "NIBE-1245-8",
+          "measurement": "Nibe",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -242,7 +243,8 @@
           "placement": "bottom"
         },
         "tooltip": {
-          "mode": "single"
+          "mode": "single",
+          "sort": "none"
         }
       },
       "targets": [
@@ -272,7 +274,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "NIBE-1245-8",
+          "measurement": "Nibe",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -381,7 +383,8 @@
           "placement": "bottom"
         },
         "tooltip": {
-          "mode": "single"
+          "mode": "single",
+          "sort": "none"
         }
       },
       "targets": [
@@ -411,7 +414,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "NIBE-1245-8",
+          "measurement": "Nibe",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -514,7 +517,8 @@
           "placement": "bottom"
         },
         "tooltip": {
-          "mode": "single"
+          "mode": "single",
+          "sort": "none"
         }
       },
       "targets": [
@@ -544,7 +548,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "NIBE-1245-8",
+          "measurement": "Nibe",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -589,7 +593,7 @@
     }
   ],
   "refresh": "",
-  "schemaVersion": 34,
+  "schemaVersion": 35,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -603,6 +607,6 @@
   "timezone": "",
   "title": "Nibe",
   "uid": "nAuM5zmRk",
-  "version": 19,
+  "version": 20,
   "weekStart": ""
 }
