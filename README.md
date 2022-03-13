@@ -52,6 +52,13 @@ use home
 show measurements
 SELECT * FROM temperature order by time desc limit 10
 ```
+Delete data from influxdb
+```
+influx -precision rfc3339 -username grafana -password <password>
+use home
+show measurements
+DROP MEASUREMENT yourmeasurement
+```
 Nibe pump data to local influxdb
 ```
 Crontab 5min poll interval
