@@ -52,3 +52,10 @@ use home
 show measurements
 SELECT * FROM temperature order by time desc limit 10
 ```
+Nibe pump data to local influxdb
+```
+Crontab 5min poll interval
+*/5 * * * *  python nibe_main.py username password pumpid
+```
+
+
