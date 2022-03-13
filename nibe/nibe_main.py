@@ -11,6 +11,7 @@
 #40026, jateilma
 #40075, tuloilma
 #40020, hoyrystin
+#43084, teho sahkolisalampo
 
 import sys
 from pprint import pprint
@@ -33,7 +34,8 @@ sensor_dict = {
    'BT22 Supply air temp': 40075,
    'Compressor starts': 43416,
    'Total time compressor': 43420,
-   'BT16 Evaporator temp': 40020
+   'BT16 Evaporator temp': 40020,
+   'Internal electrical addition power': 43084
 }
 
 username = sys.argv[1]
@@ -44,7 +46,7 @@ NIBE_UPLINK_CONF = {
   'username': username,
   'password': password,
   "hpid": pumpid,
-  'variables': [43424,40008,40012,43416,40004,43420,47265,40013,40014,40025,40026,40075,40020] # variables you want to fetch
+  'variables': [43424,40008,40012,43416,40004,43420,47265,40013,40014,40025,40026,40075,40020,43084] # variables you want to fetch
 }
 
 nd = NibeDownlink(**NIBE_UPLINK_CONF)

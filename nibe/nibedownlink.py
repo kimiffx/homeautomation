@@ -33,7 +33,7 @@ class NibeDownlink(object):
 
   def normalize_value(self, value):
     try:
-      return float(re.sub(ur'^([-\d.]+)(Hz|h|%|\u00B0C|DM|cent/kWh)?$', r'\1', value, flags=re.UNICODE))
+      return float(re.sub(ur'^([-\d.]+)(kW|Hz|h|%|\u00B0C|DM|cent/kWh)?$', r'\1', value, flags=re.UNICODE))
     except ValueError:
       pass
 
