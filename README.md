@@ -59,6 +59,12 @@ use home
 show measurements
 DROP MEASUREMENT yourmeasurement
 ```
+Backup influxdb
+```
+influxd backup -portable /home/pi/influx_backup/
+scp -r pi@ipaddress:/home/pi/influx_backup localfolder
+```
+
 Nibe pump data to local influxdb
 ```
 Crontab 5min poll interval
