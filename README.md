@@ -11,6 +11,12 @@ sudo systemctl start influxdb
 sudo systemctl enable influxdb.service
 ```
 
+Python3 pip and influxdb client
+```
+sudo apt-get install python3-pip
+pip3 install influxdb
+```
+
 create user to influxdb
 ```
 create database home
@@ -69,7 +75,7 @@ scp -r pi@ipaddress:/home/pi/influx_backup localfolder
 Nibe pump data to local influxdb
 ```
 Crontab 5min poll interval
-*/5 * * * *  python nibe_main.py username password pumpid
+*/5 * * * *  python3 nibe_main.py username password pumpid
 ```
 
 
