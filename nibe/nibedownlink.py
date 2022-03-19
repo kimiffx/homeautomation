@@ -33,10 +33,10 @@ class NibeDownlink(object):
 
   def normalize_value(self, value):
     try:
-      #print(str(value))
+      print(str(value))
       if value == 'ei':
          return 0
-      elif value == u'kyll\xc3':
+      elif value == u'kyllä':
          return 20
       else:
          return float(re.sub(r'^([-\d.]+)(kW|Hz|h|%|\u00B0C|DM|cent/kWh)?$', r'\1', value, flags=re.UNICODE))
