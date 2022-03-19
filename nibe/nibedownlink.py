@@ -33,7 +33,7 @@ class NibeDownlink(object):
 
   def normalize_value(self, value):
     try:
-      print(str(value))
+      #print(str(value))
       if value == 'ei':
          return 0
       elif value == u'kyllä':
