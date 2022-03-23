@@ -348,7 +348,7 @@
       },
       "gridPos": {
         "h": 8,
-        "w": 8,
+        "w": 4,
         "x": 16,
         "y": 16
       },
@@ -426,6 +426,159 @@
       ],
       "title": "Internal electrical addition power / total / timerange",
       "type": "stat"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "2": {
+                  "index": 0,
+                  "text": "1"
+                },
+                "4": {
+                  "index": 1,
+                  "text": "2"
+                },
+                "6": {
+                  "index": 2,
+                  "text": "3"
+                },
+                "8": {
+                  "index": 3,
+                  "text": "4"
+                },
+                "10": {
+                  "index": 4,
+                  "text": "5"
+                },
+                "12": {
+                  "index": 5,
+                  "text": "6"
+                },
+                "14": {
+                  "index": 6,
+                  "text": "7"
+                },
+                "16": {
+                  "index": 7,
+                  "text": "8"
+                },
+                "18": {
+                  "index": 8,
+                  "text": "9"
+                },
+                "20": {
+                  "index": 9,
+                  "text": "10"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "from": 21,
+                "result": {
+                  "index": 10,
+                  "text": "10 +"
+                },
+                "to": 10000
+              },
+              "type": "range"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 4,
+        "x": 20,
+        "y": 16
+      },
+      "id": 12,
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "changeCount"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "pluginVersion": "8.4.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "_2YhzQigk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "Nibe",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT count(\"value\") FROM \"Nibe\" WHERE (\"sensor\" = 'Compressor blocked' AND \"value\" = 20) AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": false,
+          "refId": "A",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "sensor",
+              "operator": "=",
+              "value": "Compressor blocked"
+            }
+          ]
+        }
+      ],
+      "title": "Compressor blocked",
+      "type": "gauge"
     },
     {
       "aliasColors": {},
@@ -628,7 +781,7 @@
       "fill": 0,
       "fillGradient": 0,
       "gridPos": {
-        "h": 10,
+        "h": 13,
         "w": 12,
         "x": 12,
         "y": 24
@@ -767,6 +920,6 @@
   "timezone": "",
   "title": "Nibe",
   "uid": "nAuM5zmRk",
-  "version": 42,
+  "version": 49,
   "weekStart": ""
 }
