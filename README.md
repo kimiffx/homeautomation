@@ -77,9 +77,9 @@ Nibe pump data to local influxdb
 Crontab 5min poll interval
 */5 * * * *  python3 nibe_main.py username password pumpid
 ```
-Delete 100 week old data from influxdb
+Modify default autogen to delete 100 week old data
 ```
-CREATE RETENTION POLICY clean_up_policy ON home DURATION 100w REPLICATION 1 DEFAULT
+ALTER RETENTION POLICY autogen on home DURATION 100w DEFAULT
 
 use home
 SHOW RETENTION POLICIES
