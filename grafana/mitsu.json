@@ -377,8 +377,8 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 10,
-        "w": 8,
+        "h": 9,
+        "w": 12,
         "x": 0,
         "y": 12
       },
@@ -462,6 +462,136 @@
       "fieldConfig": {
         "defaults": {
           "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 12,
+        "y": 12
+      },
+      "id": 4,
+      "options": {
+        "legend": {
+          "calcs": [
+            "max",
+            "min",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "alias": "ActualFanSpeed",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "_2YhzQigk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "previous"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "mcloud",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "ActualFanSpeed"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "DeviceName",
+              "operator": "=",
+              "value": "Mitsu"
+            }
+          ]
+        }
+      ],
+      "title": "Fan",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "_2YhzQigk"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
             "mode": "thresholds"
           },
           "decimals": 1,
@@ -484,10 +614,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 10,
-        "w": 5,
-        "x": 8,
-        "y": 12
+        "h": 6,
+        "w": 12,
+        "x": 0,
+        "y": 21
       },
       "id": 8,
       "options": {
@@ -566,37 +696,24 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "palette-classic"
+            "fixedColor": "blue",
+            "mode": "thresholds"
           },
-          "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
+          "mappings": [
+            {
+              "options": {
+                "1": {
+                  "index": 1,
+                  "text": "Heating"
+                },
+                "3": {
+                  "index": 0,
+                  "text": "Cooling"
+                }
+              },
+              "type": "value"
             }
-          },
-          "mappings": [],
+          ],
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -606,7 +723,11 @@
               },
               {
                 "color": "red",
-                "value": 80
+                "value": 1
+              },
+              {
+                "color": "blue",
+                "value": 3
               }
             ]
           }
@@ -614,30 +735,29 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 10,
-        "w": 11,
-        "x": 13,
-        "y": 12
+        "h": 6,
+        "w": 12,
+        "x": 12,
+        "y": 21
       },
-      "id": 4,
+      "id": 10,
       "options": {
-        "legend": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
           "calcs": [
-            "max",
-            "min",
             "lastNotNull"
           ],
-          "displayMode": "table",
-          "placement": "bottom"
+          "fields": "",
+          "values": false
         },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
+        "textMode": "auto"
       },
+      "pluginVersion": "8.5.1",
       "targets": [
         {
-          "alias": "ActualFanSpeed",
           "datasource": {
             "type": "influxdb",
             "uid": "_2YhzQigk"
@@ -651,12 +771,11 @@
             },
             {
               "params": [
-                "previous"
+                "null"
               ],
               "type": "fill"
             }
           ],
-          "hide": false,
           "measurement": "mcloud",
           "orderByTime": "ASC",
           "policy": "default",
@@ -666,7 +785,7 @@
             [
               {
                 "params": [
-                  "ActualFanSpeed"
+                  "OperationMode"
                 ],
                 "type": "field"
               },
@@ -685,8 +804,8 @@
           ]
         }
       ],
-      "title": "Fan",
-      "type": "timeseries"
+      "title": "Mode",
+      "type": "stat"
     }
   ],
   "refresh": "",
@@ -704,6 +823,6 @@
   "timezone": "",
   "title": "Mitsu",
   "uid": "1fh_kbRRz",
-  "version": 13,
+  "version": 14,
   "weekStart": ""
 }
