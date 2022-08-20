@@ -25,6 +25,9 @@ async def get_devices():
                 my_datapoint["tags"] = {'sensor': 'temperature_' + device.label }
                 my_datapoint["fields"] = {'value': float(device_temperature)}
                 client.write_points([my_datapoint])
+                my_datapoint["tags"] = {'sensor': 'humidity_' + device.label }
+                my_datapoint["fields"] = {'value': float(device_humidity)}
+                client.write_points([my_datapoint])
             if device.name == "single-switch-plug":
                 await device.status.refresh()
                 jsondata = device.status.values
