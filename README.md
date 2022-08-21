@@ -84,4 +84,8 @@ ALTER RETENTION POLICY autogen on home DURATION 100w DEFAULT
 use home
 SHOW RETENTION POLICIES
 ```
-
+Smartthings data to Influx
+```
+Crontab 5min poll interval
+*/2 * * * *  python3 getSmartthingsData.py mytoken
+```
