@@ -3,7 +3,10 @@
     "list": [
       {
         "builtIn": 1,
-        "datasource": "-- Grafana --",
+        "datasource": {
+          "type": "datasource",
+          "uid": "grafana"
+        },
         "enable": true,
         "hide": true,
         "iconColor": "rgba(0, 211, 255, 1)",
@@ -39,55 +42,89 @@
   "liveNow": false,
   "panels": [
     {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
       "datasource": {
         "type": "influxdb",
         "uid": "_2YhzQigk"
       },
-      "fill": 1,
-      "fillGradient": 1,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
       "gridPos": {
         "h": 17,
         "w": 12,
         "x": 0,
         "y": 0
       },
-      "hiddenSeries": false,
-      "id": 2,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": true,
-        "hideEmpty": false,
-        "hideZero": false,
-        "max": true,
-        "min": true,
-        "rightSide": false,
-        "show": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 2,
-      "nullPointMode": "null",
+      "id": 16,
       "options": {
-        "alertThreshold": true
+        "legend": {
+          "calcs": [
+            "min",
+            "max",
+            "last"
+          ],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
       },
-      "percentage": false,
-      "pluginVersion": "8.4.3",
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
       "targets": [
         {
-          "alias": "$tag_deviceName",
+          "alias": "$tag_sensor",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "_2YhzQigk"
+          },
           "groupBy": [
             {
               "params": [
@@ -97,7 +134,7 @@
             },
             {
               "params": [
-                "deviceName"
+                "sensor"
               ],
               "type": "tag"
             },
@@ -108,7 +145,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "temperature",
+          "measurement": "Smartthings",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -123,95 +160,142 @@
               },
               {
                 "params": [],
-                "type": "mean"
+                "type": "last"
               }
             ]
           ],
-          "tags": []
+          "tags": [
+            {
+              "key": "sensor",
+              "operator": "=",
+              "value": "temperature_Jaakaappi"
+            },
+            {
+              "condition": "OR",
+              "key": "sensor",
+              "operator": "=",
+              "value": "temperature_Makkari"
+            },
+            {
+              "condition": "OR",
+              "key": "sensor",
+              "operator": "=",
+              "value": "temperature_Olohuone"
+            },
+            {
+              "condition": "OR",
+              "key": "sensor",
+              "operator": "=",
+              "value": "temperature_Sauna"
+            },
+            {
+              "condition": "OR",
+              "key": "sensor",
+              "operator": "=",
+              "value": "temperature_Terassi"
+            },
+            {
+              "condition": "OR",
+              "key": "sensor",
+              "operator": "=",
+              "value": "temperature_Ulkona"
+            },
+            {
+              "condition": "OR",
+              "key": "sensor",
+              "operator": "=",
+              "value": "temperature_Varasto"
+            }
+          ]
         }
       ],
-      "thresholds": [],
-      "timeRegions": [],
       "title": "Lämpötilat",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "mode": "time",
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "$$hashKey": "object:154",
-          "format": "short",
-          "logBase": 1,
-          "show": true
-        },
-        {
-          "$$hashKey": "object:155",
-          "format": "short",
-          "logBase": 1,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false
-      }
+      "type": "timeseries"
     },
     {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
       "datasource": {
         "type": "influxdb",
         "uid": "_2YhzQigk"
       },
-      "fill": 1,
-      "fillGradient": 1,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
       "gridPos": {
         "h": 17,
         "w": 12,
         "x": 12,
         "y": 0
       },
-      "hiddenSeries": false,
-      "id": 4,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": true,
-        "hideEmpty": false,
-        "hideZero": false,
-        "max": true,
-        "min": true,
-        "rightSide": false,
-        "show": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 2,
-      "nullPointMode": "null",
+      "id": 17,
       "options": {
-        "alertThreshold": true
+        "legend": {
+          "calcs": [
+            "min",
+            "max",
+            "last"
+          ],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
       },
-      "percentage": false,
-      "pluginVersion": "8.4.3",
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
       "targets": [
         {
-          "alias": "$tag_deviceName",
+          "alias": "$tag_sensor",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "_2YhzQigk"
+          },
           "groupBy": [
             {
               "params": [
@@ -221,7 +305,7 @@
             },
             {
               "params": [
-                "deviceName"
+                "sensor"
               ],
               "type": "tag"
             },
@@ -232,7 +316,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "humidity",
+          "measurement": "Smartthings",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -247,44 +331,57 @@
               },
               {
                 "params": [],
-                "type": "mean"
+                "type": "last"
               }
             ]
           ],
-          "tags": []
+          "tags": [
+            {
+              "key": "sensor",
+              "operator": "=",
+              "value": "humidity_Jaakaappi"
+            },
+            {
+              "condition": "OR",
+              "key": "sensor",
+              "operator": "=",
+              "value": "humidity_Makkari"
+            },
+            {
+              "condition": "OR",
+              "key": "sensor",
+              "operator": "=",
+              "value": "humidity_Olohuone"
+            },
+            {
+              "condition": "OR",
+              "key": "sensor",
+              "operator": "=",
+              "value": "humidity_Sauna"
+            },
+            {
+              "condition": "OR",
+              "key": "sensor",
+              "operator": "=",
+              "value": "humidity_Terassi"
+            },
+            {
+              "condition": "OR",
+              "key": "sensor",
+              "operator": "=",
+              "value": "humidity_Ulkona"
+            },
+            {
+              "condition": "OR",
+              "key": "sensor",
+              "operator": "=",
+              "value": "humidity_Varasto"
+            }
+          ]
         }
       ],
-      "thresholds": [],
-      "timeRegions": [],
       "title": "Kosteus",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "mode": "time",
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "$$hashKey": "object:154",
-          "format": "short",
-          "logBase": 1,
-          "show": true
-        },
-        {
-          "$$hashKey": "object:155",
-          "format": "short",
-          "logBase": 1,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false
-      }
+      "type": "timeseries"
     },
     {
       "datasource": {
@@ -352,10 +449,14 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.4.3",
+      "pluginVersion": "9.0.2",
       "targets": [
         {
-          "alias": "$tag_deviceName",
+          "alias": "$tag_sensor",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "_2YhzQigk"
+          },
           "groupBy": [
             {
               "params": [
@@ -365,7 +466,7 @@
             },
             {
               "params": [
-                "deviceName"
+                "sensor"
               ],
               "type": "tag"
             },
@@ -376,7 +477,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "temperature",
+          "measurement": "Smartthings",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -397,9 +498,9 @@
           ],
           "tags": [
             {
-              "key": "deviceName",
+              "key": "sensor",
               "operator": "=",
-              "value": "Ulkona"
+              "value": "temperature_Ulkona"
             }
           ]
         }
@@ -473,10 +574,14 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.4.3",
+      "pluginVersion": "9.0.2",
       "targets": [
         {
-          "alias": "$tag_deviceName",
+          "alias": "$tag_sensor",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "_2YhzQigk"
+          },
           "groupBy": [
             {
               "params": [
@@ -486,7 +591,7 @@
             },
             {
               "params": [
-                "deviceName"
+                "sensor"
               ],
               "type": "tag"
             },
@@ -497,7 +602,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "temperature",
+          "measurement": "Smartthings",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -518,9 +623,9 @@
           ],
           "tags": [
             {
-              "key": "deviceName",
+              "key": "sensor",
               "operator": "=",
-              "value": "Terassi"
+              "value": "temperature_Terassi"
             }
           ]
         }
@@ -593,10 +698,14 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.4.3",
+      "pluginVersion": "9.0.2",
       "targets": [
         {
-          "alias": "$tag_deviceName",
+          "alias": "$tag_sensor",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "_2YhzQigk"
+          },
           "groupBy": [
             {
               "params": [
@@ -606,7 +715,7 @@
             },
             {
               "params": [
-                "deviceName"
+                "sensor"
               ],
               "type": "tag"
             },
@@ -617,7 +726,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "temperature",
+          "measurement": "Smartthings",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -638,9 +747,9 @@
           ],
           "tags": [
             {
-              "key": "deviceName",
+              "key": "sensor",
               "operator": "=",
-              "value": "Varasto"
+              "value": "temperature_Varasto"
             }
           ]
         }
@@ -649,24 +758,30 @@
       "type": "stat"
     },
     {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "_2YhzQigk"
+      },
       "fieldConfig": {
         "defaults": {
-          "decimals": 0,
+          "color": {
+            "mode": "thresholds"
+          },
           "mappings": [
             {
               "options": {
                 "0": {
-                  "text": "Kiinni"
+                  "index": 0,
+                  "text": "Off"
                 },
                 "1": {
-                  "text": "Päällä"
+                  "index": 1,
+                  "text": "On"
                 }
               },
               "type": "value"
             }
           ],
-          "max": 1,
-          "min": 0,
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -676,10 +791,6 @@
               },
               {
                 "color": "red",
-                "value": 0
-              },
-              {
-                "color": "green",
                 "value": 1
               }
             ]
@@ -688,29 +799,34 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 8,
-        "w": 5,
+        "h": 4,
+        "w": 4,
         "x": 12,
         "y": 17
       },
-      "id": 14,
+      "id": 30,
       "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
         "orientation": "auto",
         "reduceOptions": {
           "calcs": [
-            "last"
+            "lastNotNull"
           ],
           "fields": "",
-          "limit": 1,
           "values": false
         },
-        "showThresholdLabels": false,
-        "showThresholdMarkers": false
+        "textMode": "auto"
       },
-      "pluginVersion": "8.4.3",
+      "pluginVersion": "9.0.2",
       "targets": [
         {
-          "alias": "$tag_deviceName",
+          "alias": "$sensor",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "_2YhzQigk"
+          },
           "groupBy": [
             {
               "params": [
@@ -720,30 +836,27 @@
             },
             {
               "params": [
-                "deviceName"
+                "sensor"
               ],
               "type": "tag"
             },
             {
               "params": [
-                "previous"
+                "null"
               ],
               "type": "fill"
             }
           ],
-          "hide": false,
-          "measurement": "switch",
+          "measurement": "Smartthings",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT last(\"valueBinary\") FROM \"contact\" WHERE (\"deviceName\" = 'Takaovi') AND $timeFilter GROUP BY time($__interval), \"deviceName\"",
-          "rawQuery": false,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
             [
               {
                 "params": [
-                  "valueBinary"
+                  "value"
                 ],
                 "type": "field"
               },
@@ -753,62 +866,88 @@
               }
             ]
           ],
-          "tags": []
+          "tags": [
+            {
+              "key": "sensor",
+              "operator": "=",
+              "value": "Pistorasia Kimi simu"
+            }
+          ]
         }
       ],
-      "title": "Autot",
-      "type": "gauge"
+      "title": "Pistorasia kimi simu",
+      "type": "stat"
     },
     {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
       "datasource": {
         "type": "influxdb",
         "uid": "_2YhzQigk"
       },
-      "fill": 1,
-      "fillGradient": 1,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "index": 0,
+                  "text": "Off"
+                },
+                "1": {
+                  "index": 1,
+                  "text": "On"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
       "gridPos": {
-        "h": 8,
-        "w": 7,
-        "x": 17,
+        "h": 4,
+        "w": 4,
+        "x": 16,
         "y": 17
       },
-      "hiddenSeries": false,
-      "id": 13,
-      "legend": {
-        "alignAsTable": true,
-        "avg": false,
-        "current": true,
-        "hideEmpty": false,
-        "hideZero": false,
-        "max": false,
-        "min": false,
-        "rightSide": false,
-        "show": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 2,
-      "nullPointMode": "null as zero",
+      "id": 33,
       "options": {
-        "alertThreshold": true
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
       },
-      "percentage": false,
-      "pluginVersion": "8.4.3",
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
+      "pluginVersion": "9.0.2",
       "targets": [
         {
-          "alias": "$tag_deviceName",
+          "alias": "$sensor",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "_2YhzQigk"
+          },
           "groupBy": [
             {
               "params": [
@@ -818,18 +957,18 @@
             },
             {
               "params": [
-                "deviceName"
+                "sensor"
               ],
               "type": "tag"
             },
             {
               "params": [
-                "previous"
+                "null"
               ],
               "type": "fill"
             }
           ],
-          "measurement": "switch",
+          "measurement": "Smartthings",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -838,7 +977,7 @@
             [
               {
                 "params": [
-                  "valueBinary"
+                  "value"
                 ],
                 "type": "field"
               },
@@ -848,40 +987,138 @@
               }
             ]
           ],
-          "tags": []
+          "tags": [
+            {
+              "key": "sensor",
+              "operator": "=",
+              "value": "Pistorasia Kimi simu"
+            }
+          ]
         }
       ],
-      "thresholds": [],
-      "timeRegions": [],
-      "title": "Autot",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
+      "title": "Pistorasia kimi simu",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "_2YhzQigk"
       },
-      "type": "graph",
-      "xaxis": {
-        "mode": "time",
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "$$hashKey": "object:154",
-          "format": "short",
-          "logBase": 1,
-          "show": true
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "index": 0,
+                  "text": "Off"
+                },
+                "1": {
+                  "index": 1,
+                  "text": "On"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 1
+              }
+            ]
+          }
         },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 20,
+        "y": 17
+      },
+      "id": 32,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.0.2",
+      "targets": [
         {
-          "$$hashKey": "object:155",
-          "format": "short",
-          "logBase": 1,
-          "show": true
+          "alias": "$sensor",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "_2YhzQigk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "sensor"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "Smartthings",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "sensor",
+              "operator": "=",
+              "value": "Pistorasia kuntopyora"
+            }
+          ]
         }
       ],
-      "yaxis": {
-        "align": false
-      }
+      "title": "Pistorasia kimi kuntopyörä",
+      "type": "stat"
     },
     {
       "datasource": {
@@ -933,10 +1170,14 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.4.3",
+      "pluginVersion": "9.0.2",
       "targets": [
         {
-          "alias": "$tag_deviceName",
+          "alias": "$tag_sensor",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "_2YhzQigk"
+          },
           "groupBy": [
             {
               "params": [
@@ -946,7 +1187,7 @@
             },
             {
               "params": [
-                "deviceName"
+                "sensor"
               ],
               "type": "tag"
             },
@@ -957,7 +1198,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "temperature",
+          "measurement": "Smartthings",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -978,9 +1219,9 @@
           ],
           "tags": [
             {
-              "key": "deviceName",
+              "key": "sensor",
               "operator": "=",
-              "value": "Olohuone"
+              "value": "temperature_Olohuone"
             }
           ]
         }
@@ -1038,10 +1279,14 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.4.3",
+      "pluginVersion": "9.0.2",
       "targets": [
         {
-          "alias": "$tag_deviceName",
+          "alias": "$tag_sensor",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "_2YhzQigk"
+          },
           "groupBy": [
             {
               "params": [
@@ -1051,7 +1296,7 @@
             },
             {
               "params": [
-                "deviceName"
+                "sensor"
               ],
               "type": "tag"
             },
@@ -1062,7 +1307,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "temperature",
+          "measurement": "Smartthings",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -1083,9 +1328,9 @@
           ],
           "tags": [
             {
-              "key": "deviceName",
+              "key": "sensor",
               "operator": "=",
-              "value": "Makkari"
+              "value": "temperature_Makkari"
             }
           ]
         }
@@ -1143,10 +1388,14 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.4.3",
+      "pluginVersion": "9.0.2",
       "targets": [
         {
-          "alias": "$tag_deviceName",
+          "alias": "$tag_sensor",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "_2YhzQigk"
+          },
           "groupBy": [
             {
               "params": [
@@ -1156,7 +1405,7 @@
             },
             {
               "params": [
-                "deviceName"
+                "sensor"
               ],
               "type": "tag"
             },
@@ -1167,7 +1416,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "temperature",
+          "measurement": "Smartthings",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -1188,14 +1437,498 @@
           ],
           "tags": [
             {
-              "key": "deviceName",
+              "key": "sensor",
               "operator": "=",
-              "value": "Sauna"
+              "value": "temperature_Sauna"
             }
           ]
         }
       ],
       "title": "Lämpötila sauna",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "_2YhzQigk"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "index": 1,
+                  "text": "kiinni"
+                },
+                "1": {
+                  "index": 0,
+                  "text": "auki"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 12,
+        "y": 21
+      },
+      "id": 31,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.0.2",
+      "targets": [
+        {
+          "alias": "$sensor",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "_2YhzQigk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "sensor"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "Smartthings",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "sensor",
+              "operator": "=",
+              "value": "contact_Etuovi"
+            }
+          ]
+        }
+      ],
+      "title": "Etuovi",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "_2YhzQigk"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "index": 1,
+                  "text": "kiinni"
+                },
+                "1": {
+                  "index": 0,
+                  "text": "auki"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 15,
+        "y": 21
+      },
+      "id": 34,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.0.2",
+      "targets": [
+        {
+          "alias": "$sensor",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "_2YhzQigk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "sensor"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "Smartthings",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "sensor",
+              "operator": "=",
+              "value": "contact_Takaovi"
+            }
+          ]
+        }
+      ],
+      "title": "Takaovi",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "_2YhzQigk"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "index": 1,
+                  "text": "kiinni"
+                },
+                "1": {
+                  "index": 0,
+                  "text": "auki"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 18,
+        "y": 21
+      },
+      "id": 35,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.0.2",
+      "targets": [
+        {
+          "alias": "$sensor",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "_2YhzQigk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "sensor"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "Smartthings",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "sensor",
+              "operator": "=",
+              "value": "contact_Terassi"
+            }
+          ]
+        }
+      ],
+      "title": "Terassi",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "_2YhzQigk"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "index": 1,
+                  "text": "kiinni"
+                },
+                "1": {
+                  "index": 0,
+                  "text": "auki"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 21,
+        "y": 21
+      },
+      "id": 36,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.0.2",
+      "targets": [
+        {
+          "alias": "$sensor",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "_2YhzQigk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "sensor"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "Smartthings",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "sensor",
+              "operator": "=",
+              "value": "contact_Varasto"
+            }
+          ]
+        }
+      ],
+      "title": "Varasto",
       "type": "stat"
     },
     {
@@ -1256,10 +1989,14 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.4.3",
+      "pluginVersion": "9.0.2",
       "targets": [
         {
-          "alias": "$tag_deviceName",
+          "alias": "$tag_sensor",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "_2YhzQigk"
+          },
           "groupBy": [
             {
               "params": [
@@ -1269,7 +2006,7 @@
             },
             {
               "params": [
-                "deviceName"
+                "sensor"
               ],
               "type": "tag"
             },
@@ -1280,7 +2017,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "temperature",
+          "measurement": "Smartthings",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -1301,143 +2038,32 @@
           ],
           "tags": [
             {
-              "key": "deviceName",
+              "key": "sensor",
               "operator": "=",
-              "value": "Jaakaappi"
+              "value": "temperature_Jaakaappi"
             }
           ]
         }
       ],
       "title": "Lämpötila jääkaappi",
       "type": "stat"
-    },
-    {
-      "fieldConfig": {
-        "defaults": {
-          "decimals": 0,
-          "mappings": [
-            {
-              "options": {
-                "0": {
-                  "text": "Auki"
-                },
-                "1": {
-                  "text": "Kiinni"
-                }
-              },
-              "type": "value"
-            }
-          ],
-          "max": 1,
-          "min": 0,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 0
-              },
-              {
-                "color": "green",
-                "value": 1
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 5,
-        "w": 12,
-        "x": 12,
-        "y": 25
-      },
-      "id": 6,
-      "options": {
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "last"
-          ],
-          "fields": "",
-          "limit": 1,
-          "values": false
-        },
-        "showThresholdLabels": false,
-        "showThresholdMarkers": false
-      },
-      "pluginVersion": "8.4.3",
-      "targets": [
-        {
-          "alias": "$tag_deviceName",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "deviceName"
-              ],
-              "type": "tag"
-            },
-            {
-              "params": [
-                "previous"
-              ],
-              "type": "fill"
-            }
-          ],
-          "hide": false,
-          "measurement": "contact",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "query": "SELECT last(\"valueBinary\") FROM \"contact\" WHERE (\"deviceName\" = 'Takaovi') AND $timeFilter GROUP BY time($__interval), \"deviceName\"",
-          "rawQuery": false,
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "valueBinary"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "last"
-              }
-            ]
-          ],
-          "tags": []
-        }
-      ],
-      "title": "Tunnistimet",
-      "type": "gauge"
     }
   ],
   "refresh": "5s",
-  "schemaVersion": 35,
+  "schemaVersion": 36,
   "style": "dark",
   "tags": [],
   "templating": {
     "list": []
   },
   "time": {
-    "from": "now-7d",
+    "from": "now-24h",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "Koti",
   "uid": "tBS2B6Rgk",
-  "version": 8,
+  "version": 29,
   "weekStart": ""
 }
