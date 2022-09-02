@@ -74,7 +74,7 @@ scp -r pi@ipaddress:/home/pi/influx_backup localfolder
 
 Nibe pump data to local influxdb
 ```
-Crontab 5min poll interval
+Crontab
 */5 * * * *  python3 nibe_main.py username password pumpid
 ```
 Modify default autogen to delete 100 week old data
@@ -84,4 +84,8 @@ ALTER RETENTION POLICY autogen on home DURATION 100w DEFAULT
 use home
 SHOW RETENTION POLICIES
 ```
-
+Smartthings data to Influx
+```
+Crontab
+*/2 * * * *  python3 getSmartthingsData.py mytoken
+```
