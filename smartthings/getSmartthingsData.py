@@ -3,13 +3,13 @@ import aiohttp
 import asyncio
 import pysmartthings
 import sys
+import json
 from influxdb import InfluxDBClient
 
 client = InfluxDBClient('localhost', '8086', 'grafana', 'grafana', 'home')
 
 token = sys.argv[1]
-my_datapoint = {}
-my_datapoint["measurement"] = "Smartthings"
+myGlobalData  = ""
 
 async def get_devices():
     async with aiohttp.ClientSession() as session:
@@ -22,13 +22,9 @@ async def get_devices():
                 jsondata = device.status.values
                 device_temperature = jsondata['temperature']
                 device_humidity = jsondata['humidity']
-                my_datapoint["tags"] = {'sensor': 'temperature_' + device.label }
-                my_datapoint["fields"] = {'value': float(device_temperature)}
-                client.write_points([my_datapoint])
-                my_datapoint["tags"] = {'sensor': 'humidity_' + device.label }
-                my_datapoint["fields"] = {'value': float(device_humidity)}
-                client.write_points([my_datapoint])
-            if device.name == "single-switch-plug":
+                buildJson("temperature_" + device.label, device_temperature)
+                buildJson("humidity_" + device.label, device_humidity)
+            elif device.name == "single-switch-plug":
                 await device.status.refresh()
                 jsondata = device.status.values
                 device_switch = jsondata['switch']
@@ -36,10 +32,8 @@ async def get_devices():
                     device_switch = 1
                 else:
                     device_switch = 0
-                my_datapoint["tags"] = {'sensor': device.label }
-                my_datapoint["fields"] = {'value': float(device_switch)}
-                client.write_points([my_datapoint])
-            if device.name == "Contact sensor with battery voltage (YG)":
+                buildJson(device.label, float(device_switch))
+            elif device.name == "Contact sensor with battery voltage (YG)":
                 await device.status.refresh()
                 jsondata = device.status.values
                 device_contact = jsondata['contact']
@@ -47,11 +41,22 @@ async def get_devices():
                     device_contact = 1
                 else:
                     device_contact = 0
-                my_datapoint["tags"] = {'sensor': 'contact_' + device.label }
-                my_datapoint["fields"] = {'value': float(device_contact)}
-                client.write_points([my_datapoint])
+                buildJson("contact_" +device.label, float(device_contact))
 
+        str = "[" + myGlobalData[:-1] + "]"
+        dictData = json.loads(str)
+        client.write_points(dictData)
         client.close()
+
+def buildJson(device, value):
+    global myGlobalData
+    testjson = {
+        "measurement": "Smartthings",
+        "tags": {"sensor": device},
+        "fields": {"value": value},
+    }
+    dict = json.dumps(testjson)
+    myGlobalData = myGlobalData + dict + ","
 
 def main():
     loop = asyncio.get_event_loop()

@@ -64,6 +64,7 @@ influx -precision rfc3339 -username grafana -password <password>
 use home
 show measurements
 DROP MEASUREMENT yourmeasurement
+DROP SERIES FROM "Smartthings" WHERE "sensor" = 'humidityX'
 ```
 Backup influxdb
 ```
