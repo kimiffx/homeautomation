@@ -17,7 +17,7 @@ async def get_devices():
         devices = await api.devices()
         for device in devices:
             #print("{}: {}, {}".format(device.device_id, device.name, device.label))
-            if device.name == "temp-pressure":
+            if device.name == "temp-pressure" or device.name == "humidity-temperature":
                 await device.status.refresh()
                 jsondata = device.status.values
                 device_temperature = jsondata['temperature']

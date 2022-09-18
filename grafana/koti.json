@@ -97,7 +97,7 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 17,
+        "h": 19,
         "w": 12,
         "x": 0,
         "y": 0
@@ -108,6 +108,7 @@
           "calcs": [
             "min",
             "max",
+            "mean",
             "last"
           ],
           "displayMode": "table",
@@ -205,6 +206,18 @@
               "key": "sensor",
               "operator": "=",
               "value": "temperature_Varasto"
+            },
+            {
+              "condition": "OR",
+              "key": "sensor",
+              "operator": "=",
+              "value": "temperature_KiminHuone"
+            },
+            {
+              "condition": "OR",
+              "key": "sensor",
+              "operator": "=",
+              "value": "temperature_SaranHuone"
             }
           ]
         }
@@ -268,7 +281,7 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 17,
+        "h": 19,
         "w": 12,
         "x": 12,
         "y": 0
@@ -376,6 +389,18 @@
               "key": "sensor",
               "operator": "=",
               "value": "humidity_Varasto"
+            },
+            {
+              "condition": "OR",
+              "key": "sensor",
+              "operator": "=",
+              "value": "humidity_KiminHuone"
+            },
+            {
+              "condition": "OR",
+              "key": "sensor",
+              "operator": "=",
+              "value": "humidity_SaranHuone"
             }
           ]
         }
@@ -432,7 +457,7 @@
         "h": 4,
         "w": 4,
         "x": 0,
-        "y": 17
+        "y": 19
       },
       "id": 8,
       "options": {
@@ -557,7 +582,7 @@
         "h": 4,
         "w": 4,
         "x": 4,
-        "y": 17
+        "y": 19
       },
       "id": 7,
       "options": {
@@ -681,7 +706,7 @@
         "h": 4,
         "w": 4,
         "x": 8,
-        "y": 17
+        "y": 19
       },
       "id": 12,
       "options": {
@@ -802,7 +827,7 @@
         "h": 4,
         "w": 4,
         "x": 12,
-        "y": 17
+        "y": 19
       },
       "id": 30,
       "options": {
@@ -923,7 +948,7 @@
         "h": 4,
         "w": 4,
         "x": 16,
-        "y": 17
+        "y": 19
       },
       "id": 33,
       "options": {
@@ -991,12 +1016,12 @@
             {
               "key": "sensor",
               "operator": "=",
-              "value": "Pistorasia Kimi simu"
+              "value": "Pistorasia Sara"
             }
           ]
         }
       ],
-      "title": "Pistorasia kimi simu",
+      "title": "Pistorasia Sara",
       "type": "stat"
     },
     {
@@ -1044,7 +1069,7 @@
         "h": 4,
         "w": 4,
         "x": 20,
-        "y": 17
+        "y": 19
       },
       "id": 32,
       "options": {
@@ -1153,7 +1178,7 @@
         "h": 4,
         "w": 4,
         "x": 0,
-        "y": 21
+        "y": 23
       },
       "id": 10,
       "options": {
@@ -1262,7 +1287,7 @@
         "h": 4,
         "w": 4,
         "x": 4,
-        "y": 21
+        "y": 23
       },
       "id": 9,
       "options": {
@@ -1371,9 +1396,9 @@
         "h": 4,
         "w": 4,
         "x": 8,
-        "y": 21
+        "y": 23
       },
-      "id": 3,
+      "id": 37,
       "options": {
         "colorMode": "value",
         "graphMode": "area",
@@ -1439,12 +1464,12 @@
             {
               "key": "sensor",
               "operator": "=",
-              "value": "temperature_Sauna"
+              "value": "temperature_KiminHuone"
             }
           ]
         }
       ],
-      "title": "Lämpötila sauna",
+      "title": "Lämpötila Kimin huone",
       "type": "stat"
     },
     {
@@ -1492,7 +1517,7 @@
         "h": 4,
         "w": 3,
         "x": 12,
-        "y": 21
+        "y": 23
       },
       "id": 31,
       "options": {
@@ -1613,7 +1638,7 @@
         "h": 4,
         "w": 3,
         "x": 15,
-        "y": 21
+        "y": 23
       },
       "id": 34,
       "options": {
@@ -1734,7 +1759,7 @@
         "h": 4,
         "w": 3,
         "x": 18,
-        "y": 21
+        "y": 23
       },
       "id": 35,
       "options": {
@@ -1855,7 +1880,7 @@
         "h": 4,
         "w": 3,
         "x": 21,
-        "y": 21
+        "y": 23
       },
       "id": 36,
       "options": {
@@ -1939,6 +1964,224 @@
       "fieldConfig": {
         "defaults": {
           "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "decimals": 1,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "celsius"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 0,
+        "y": 27
+      },
+      "id": 38,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.0.2",
+      "targets": [
+        {
+          "alias": "$tag_sensor",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "_2YhzQigk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "sensor"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "previous"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "Smartthings",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "sensor",
+              "operator": "=",
+              "value": "temperature_SaranHuone"
+            }
+          ]
+        }
+      ],
+      "title": "Lämpötila Saran huone",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "_2YhzQigk"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "decimals": 1,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "celsius"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 4,
+        "y": 27
+      },
+      "id": 3,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.0.2",
+      "targets": [
+        {
+          "alias": "$tag_sensor",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "_2YhzQigk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "sensor"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "previous"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "Smartthings",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "sensor",
+              "operator": "=",
+              "value": "temperature_Sauna"
+            }
+          ]
+        }
+      ],
+      "title": "Lämpötila sauna",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "_2YhzQigk"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
             "mode": "thresholds"
           },
           "decimals": 1,
@@ -1971,8 +2214,8 @@
       "gridPos": {
         "h": 4,
         "w": 4,
-        "x": 0,
-        "y": 25
+        "x": 8,
+        "y": 27
       },
       "id": 11,
       "options": {
@@ -2057,13 +2300,13 @@
     "list": []
   },
   "time": {
-    "from": "now-24h",
+    "from": "now-7d",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "Koti",
   "uid": "tBS2B6Rgk",
-  "version": 29,
+  "version": 33,
   "weekStart": ""
 }

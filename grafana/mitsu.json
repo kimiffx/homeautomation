@@ -79,7 +79,7 @@
       "id": 8,
       "options": {
         "colorMode": "value",
-        "graphMode": "area",
+        "graphMode": "none",
         "justifyMode": "auto",
         "orientation": "auto",
         "reduceOptions": {
@@ -91,7 +91,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.1",
+      "pluginVersion": "9.0.2",
       "targets": [
         {
           "datasource": {
@@ -200,7 +200,7 @@
       "id": 10,
       "options": {
         "colorMode": "value",
-        "graphMode": "area",
+        "graphMode": "none",
         "justifyMode": "auto",
         "orientation": "auto",
         "reduceOptions": {
@@ -212,7 +212,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.1",
+      "pluginVersion": "9.0.2",
       "targets": [
         {
           "datasource": {
@@ -277,16 +277,18 @@
           "mappings": [
             {
               "options": {
-                "22": {
+                "from": 22,
+                "result": {
                   "index": 0,
                   "text": "Idle"
-                }
+                },
+                "to": 22.4
               },
-              "type": "value"
+              "type": "range"
             },
             {
               "options": {
-                "from": 22.1,
+                "from": 22.5,
                 "result": {
                   "index": 1,
                   "text": "Heating"
@@ -309,7 +311,7 @@
               },
               {
                 "color": "orange",
-                "value": 22.1
+                "value": 22.5
               }
             ]
           }
@@ -325,7 +327,7 @@
       "id": 12,
       "options": {
         "colorMode": "value",
-        "graphMode": "area",
+        "graphMode": "none",
         "justifyMode": "auto",
         "orientation": "auto",
         "reduceOptions": {
@@ -337,7 +339,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.1",
+      "pluginVersion": "9.0.2",
       "targets": [
         {
           "datasource": {
@@ -413,10 +415,11 @@
               },
               {
                 "color": "orange",
-                "value": 22.1
+                "value": 22.5
               }
             ]
-          }
+          },
+          "unit": "celsius"
         },
         "overrides": []
       },
@@ -429,7 +432,7 @@
       "id": 13,
       "options": {
         "colorMode": "value",
-        "graphMode": "area",
+        "graphMode": "none",
         "justifyMode": "auto",
         "orientation": "auto",
         "reduceOptions": {
@@ -441,7 +444,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.1",
+      "pluginVersion": "9.0.2",
       "targets": [
         {
           "datasource": {
@@ -490,7 +493,7 @@
           ]
         }
       ],
-      "title": "Nibe water temp",
+      "title": "Nibe water floor",
       "type": "stat"
     },
     {
@@ -792,7 +795,8 @@
                 "value": null
               }
             ]
-          }
+          },
+          "unit": "celsius"
         },
         "overrides": []
       },
@@ -805,7 +809,7 @@
       "id": 14,
       "options": {
         "colorMode": "value",
-        "graphMode": "area",
+        "graphMode": "none",
         "justifyMode": "auto",
         "orientation": "auto",
         "reduceOptions": {
@@ -817,7 +821,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.1",
+      "pluginVersion": "9.0.2",
       "targets": [
         {
           "datasource": {
@@ -838,7 +842,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "temperature",
+          "measurement": "Smartthings",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -859,9 +863,9 @@
           ],
           "tags": [
             {
-              "key": "deviceName",
+              "key": "sensor",
               "operator": "=",
-              "value": "Olohuone"
+              "value": "temperature_Olohuone"
             }
           ]
         }
@@ -888,7 +892,8 @@
                 "value": null
               }
             ]
-          }
+          },
+          "unit": "celsius"
         },
         "overrides": []
       },
@@ -901,7 +906,7 @@
       "id": 15,
       "options": {
         "colorMode": "value",
-        "graphMode": "area",
+        "graphMode": "none",
         "justifyMode": "auto",
         "orientation": "auto",
         "reduceOptions": {
@@ -913,7 +918,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.1",
+      "pluginVersion": "9.0.2",
       "targets": [
         {
           "datasource": {
@@ -934,7 +939,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "temperature",
+          "measurement": "Smartthings",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -955,9 +960,9 @@
           ],
           "tags": [
             {
-              "key": "deviceName",
+              "key": "sensor",
               "operator": "=",
-              "value": "Ulkona"
+              "value": "temperature_Ulkona"
             }
           ]
         }
@@ -984,7 +989,8 @@
                 "value": null
               }
             ]
-          }
+          },
+          "unit": "celsius"
         },
         "overrides": []
       },
@@ -997,7 +1003,7 @@
       "id": 16,
       "options": {
         "colorMode": "value",
-        "graphMode": "area",
+        "graphMode": "none",
         "justifyMode": "auto",
         "orientation": "auto",
         "reduceOptions": {
@@ -1009,7 +1015,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.1",
+      "pluginVersion": "9.0.2",
       "targets": [
         {
           "datasource": {
@@ -1080,7 +1086,8 @@
                 "value": null
               }
             ]
-          }
+          },
+          "unit": "celsius"
         },
         "overrides": []
       },
@@ -1093,7 +1100,7 @@
       "id": 17,
       "options": {
         "colorMode": "value",
-        "graphMode": "area",
+        "graphMode": "none",
         "justifyMode": "auto",
         "orientation": "auto",
         "reduceOptions": {
@@ -1105,7 +1112,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.1",
+      "pluginVersion": "9.0.2",
       "targets": [
         {
           "datasource": {
@@ -1436,6 +1443,6 @@
   "timezone": "",
   "title": "Mitsu",
   "uid": "1fh_kbRRz",
-  "version": 16,
+  "version": 21,
   "weekStart": ""
 }
