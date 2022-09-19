@@ -90,3 +90,8 @@ Smartthings data to Influx
 Crontab
 */2 * * * *  python3 getSmartthingsData.py mytoken
 ```
+Smartthings sensor health data to Influx ( This will need https://github.com/andrewsayre/pysmartthings/pull/64 )
+```
+Crontab
+0 * * * *  python3 getSmartthingsData.py mytoken health
+```
