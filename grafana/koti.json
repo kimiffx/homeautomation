@@ -102,7 +102,7 @@
         "x": 0,
         "y": 0
       },
-      "id": 16,
+      "id": 39,
       "options": {
         "legend": {
           "calcs": [
@@ -149,6 +149,8 @@
           "measurement": "Smartthings",
           "orderByTime": "ASC",
           "policy": "default",
+          "query": "SELECT last(\"value\") FROM \"Smartthings\" WHERE (\"sensor\" =~  /^temperature/) AND $timeFilter GROUP BY time($__interval), \"sensor\" fill(previous)",
+          "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -170,54 +172,6 @@
               "key": "sensor",
               "operator": "=",
               "value": "temperature_Jaakaappi"
-            },
-            {
-              "condition": "OR",
-              "key": "sensor",
-              "operator": "=",
-              "value": "temperature_Makkari"
-            },
-            {
-              "condition": "OR",
-              "key": "sensor",
-              "operator": "=",
-              "value": "temperature_Olohuone"
-            },
-            {
-              "condition": "OR",
-              "key": "sensor",
-              "operator": "=",
-              "value": "temperature_Sauna"
-            },
-            {
-              "condition": "OR",
-              "key": "sensor",
-              "operator": "=",
-              "value": "temperature_Terassi"
-            },
-            {
-              "condition": "OR",
-              "key": "sensor",
-              "operator": "=",
-              "value": "temperature_Ulkona"
-            },
-            {
-              "condition": "OR",
-              "key": "sensor",
-              "operator": "=",
-              "value": "temperature_Varasto"
-            },
-            {
-              "condition": "OR",
-              "key": "sensor",
-              "operator": "=",
-              "value": "temperature_KiminHuone"
-            },
-            {
-              "condition": "OR",
-              "key": "sensor",
-              "operator": "=",
-              "value": "temperature_SaranHuone"
             }
           ]
         }
@@ -332,6 +286,8 @@
           "measurement": "Smartthings",
           "orderByTime": "ASC",
           "policy": "default",
+          "query": "SELECT last(\"value\") FROM \"Smartthings\" WHERE (\"sensor\" =~  /^humidity/) AND $timeFilter GROUP BY time($__interval), \"sensor\" fill(previous)",
+          "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -2307,6 +2263,6 @@
   "timezone": "",
   "title": "Koti",
   "uid": "tBS2B6Rgk",
-  "version": 33,
+  "version": 34,
   "weekStart": ""
 }
