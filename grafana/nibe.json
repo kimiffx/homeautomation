@@ -54,8 +54,8 @@
       "fill": 0,
       "fillGradient": 0,
       "gridPos": {
-        "h": 16,
-        "w": 24,
+        "h": 15,
+        "w": 16,
         "x": 0,
         "y": 0
       },
@@ -209,6 +209,135 @@
         "type": "influxdb",
         "uid": "_2YhzQigk"
       },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 16,
+        "y": 0
+      },
+      "id": 14,
+      "options": {
+        "alertInstanceLabelFilter": "",
+        "alertName": "",
+        "dashboardAlerts": false,
+        "groupBy": [],
+        "groupMode": "default",
+        "maxItems": 20,
+        "sortOrder": 1,
+        "stateFilter": {
+          "error": true,
+          "firing": true,
+          "noData": true,
+          "normal": true,
+          "pending": true
+        }
+      },
+      "title": "Alarms",
+      "type": "alertlist"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "_2YhzQigk"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "kwatt"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 16,
+        "y": 7
+      },
+      "id": 11,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.0.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "_2YhzQigk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "Nibe",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "sensor",
+              "operator": "=",
+              "value": "Internal electrical addition power"
+            }
+          ]
+        }
+      ],
+      "title": "Max Internal electrical addition power",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "_2YhzQigk"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -251,7 +380,7 @@
         "h": 8,
         "w": 16,
         "x": 0,
-        "y": 16
+        "y": 15
       },
       "id": 10,
       "options": {
@@ -365,9 +494,9 @@
         "h": 8,
         "w": 4,
         "x": 16,
-        "y": 16
+        "y": 15
       },
-      "id": 11,
+      "id": 15,
       "options": {
         "colorMode": "value",
         "graphMode": "area",
@@ -530,7 +659,7 @@
         "h": 8,
         "w": 4,
         "x": 20,
-        "y": 16
+        "y": 15
       },
       "id": 12,
       "options": {
@@ -615,7 +744,7 @@
         "h": 13,
         "w": 12,
         "x": 0,
-        "y": 24
+        "y": 23
       },
       "hiddenSeries": false,
       "id": 7,
@@ -811,7 +940,7 @@
         "h": 13,
         "w": 12,
         "x": 12,
-        "y": 24
+        "y": 23
       },
       "hiddenSeries": false,
       "id": 8,
@@ -935,7 +1064,9 @@
   "refresh": "",
   "schemaVersion": 36,
   "style": "dark",
-  "tags": [],
+  "tags": [
+    "Nibe"
+  ],
   "templating": {
     "list": []
   },
@@ -947,6 +1078,6 @@
   "timezone": "",
   "title": "Nibe",
   "uid": "nAuM5zmRk",
-  "version": 49,
+  "version": 52,
   "weekStart": ""
 }

@@ -11,7 +11,7 @@
 #40026, jateilma
 #40075, tuloilma
 #40020, hoyrystin
-#43084, teho sahkolisalampo
+#47212, teho sahkolisalampo
 #10012, kompressori estetty
 #43009, laskettu menolampotila
 
@@ -37,7 +37,7 @@ sensor_dict = {
    'Compressor starts': 43416,
    'Total time compressor': 43420,
    'BT16 Evaporator temp': 40020,
-   'Internal electrical addition power': 43084,
+   'Internal electrical addition power': 47212,
    'Compressor blocked': 10012,
    'Calc floor water supply': 43009
 }
@@ -50,7 +50,7 @@ NIBE_UPLINK_CONF = {
   'username': username,
   'password': password,
   "hpid": pumpid,
-  'variables': [43424,40008,40012,43416,40004,43420,47265,40013,40014,40025,40026,40075,40020,43084,10012,43009] # variables you want to fetch
+  'variables': [43424,40008,40012,43416,40004,43420,47265,40013,40014,40025,40026,40075,40020,47212,10012,43009] # variables you want to fetch
 }
 
 nd = NibeDownlink(**NIBE_UPLINK_CONF)

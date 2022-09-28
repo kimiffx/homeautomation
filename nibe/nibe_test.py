@@ -10,7 +10,7 @@ NIBE_UPLINK_CONF = {
   'username': username,
   'password': password,
   "hpid": pumpid, # heat pump id
-  'variables': [10012] # variables you want to fetch
+  'variables': [43084] # variables you want to fetch
 }
 
 nd = NibeDownlink(**NIBE_UPLINK_CONF)
