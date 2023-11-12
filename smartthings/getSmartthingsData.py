@@ -29,10 +29,10 @@ async def get_devices():
                     state = 0
                 buildJson("state_" + device.label, float(state))
             else:
-                # print("{}: {}, {}".format(device.device_id, device.name, device.label))
+                print("{}: {}, {}".format(device.device_id, device.name, device.label))
                 if (
                     device.name == "temp-pressure"
-                    or device.name == "humidity-temperature"
+                    or device.name == "humidity-temperature" or device.name == "temp-humid-press-battery" or device.name == "temp-humid-therm-battery-05"
                 ):
                     await device.status.refresh()
                     jsondata = device.status.values

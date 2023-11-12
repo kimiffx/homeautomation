@@ -4,7 +4,8 @@
 #43416, kompressori kaynnistykset
 #40004, ulkolampotila
 #43420, komressorinkayntiaika
-#47265, puhallinnopeus
+#10001, puhallinnopeus poisto
+#10005, puhallusnopeus tulo
 #40014, kayttoveden taytto
 #40013, kayttovesi ylaosa
 #40025, poistoilma
@@ -26,7 +27,8 @@ client = InfluxDBClient('localhost', '8086', 'grafana', 'grafana', 'home')
 my_datapoint = {}
 sensor_dict = {
    'BT1 Outdoor temperature': 40004,
-   'Exhaust fan speed': 47265,
+   'Exhaust fan speed': 10001,
+   'Intake fan speed': 10005,
    'Total hot water operation time compr': 43424,
    'Floor water in': 40008,
    'Floor water out': 40012,
@@ -52,7 +54,7 @@ NIBE_UPLINK_CONF = {
   'username': username,
   'password': password,
   "hpid": pumpid,
-  'variables': [43424,40008,40012,43416,40004,43420,47265,40013,40014,40025,40026,40075,40020,47212,10012,43009,43081] # variables you want to fetch
+  'variables': [10001,10005,43424,40008,40012,43416,40004,43420,40013,40014,40025,40026,40075,40020,47212,10012,43009,43081] # variables you want to fetch
 }
 
 nd = NibeDownlink(**NIBE_UPLINK_CONF)

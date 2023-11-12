@@ -52,6 +52,8 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
@@ -112,7 +114,8 @@
             "last"
           ],
           "displayMode": "table",
-          "placement": "bottom"
+          "placement": "bottom",
+          "showLegend": true
         },
         "tooltip": {
           "mode": "single",
@@ -190,6 +193,8 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
@@ -249,7 +254,8 @@
             "last"
           ],
           "displayMode": "table",
-          "placement": "bottom"
+          "placement": "bottom",
+          "showLegend": true
         },
         "tooltip": {
           "mode": "single",
@@ -430,7 +436,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.2",
+      "pluginVersion": "9.5.2",
       "targets": [
         {
           "alias": "$tag_sensor",
@@ -555,7 +561,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.2",
+      "pluginVersion": "9.5.2",
       "targets": [
         {
           "alias": "$tag_sensor",
@@ -679,7 +685,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.2",
+      "pluginVersion": "9.5.2",
       "targets": [
         {
           "alias": "$tag_sensor",
@@ -781,11 +787,11 @@
       },
       "gridPos": {
         "h": 4,
-        "w": 4,
+        "w": 6,
         "x": 12,
         "y": 19
       },
-      "id": 30,
+      "id": 40,
       "options": {
         "colorMode": "value",
         "graphMode": "area",
@@ -800,7 +806,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.2",
+      "pluginVersion": "9.5.2",
       "targets": [
         {
           "alias": "$sensor",
@@ -902,8 +908,8 @@
       },
       "gridPos": {
         "h": 4,
-        "w": 4,
-        "x": 16,
+        "w": 6,
+        "x": 18,
         "y": 19
       },
       "id": 33,
@@ -921,7 +927,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.2",
+      "pluginVersion": "9.5.2",
       "targets": [
         {
           "alias": "$sensor",
@@ -988,127 +994,6 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [
-            {
-              "options": {
-                "0": {
-                  "index": 0,
-                  "text": "Off"
-                },
-                "1": {
-                  "index": 1,
-                  "text": "On"
-                }
-              },
-              "type": "value"
-            }
-          ],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 1
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 4,
-        "x": 20,
-        "y": 19
-      },
-      "id": 32,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "9.0.2",
-      "targets": [
-        {
-          "alias": "$sensor",
-          "datasource": {
-            "type": "influxdb",
-            "uid": "_2YhzQigk"
-          },
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "sensor"
-              ],
-              "type": "tag"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "Smartthings",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "value"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "last"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "sensor",
-              "operator": "=",
-              "value": "Pistorasia kuntopyora"
-            }
-          ]
-        }
-      ],
-      "title": "Pistorasia kimi kuntopyörä",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "influxdb",
-        "uid": "_2YhzQigk"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
             "mode": "continuous-GrYlRd"
           },
           "decimals": 1,
@@ -1151,7 +1036,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.2",
+      "pluginVersion": "9.5.2",
       "targets": [
         {
           "alias": "$tag_sensor",
@@ -1260,7 +1145,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.2",
+      "pluginVersion": "9.5.2",
       "targets": [
         {
           "alias": "$tag_sensor",
@@ -1369,7 +1254,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.2",
+      "pluginVersion": "9.5.2",
       "targets": [
         {
           "alias": "$tag_sensor",
@@ -1475,127 +1360,6 @@
         "x": 12,
         "y": 23
       },
-      "id": 31,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "9.0.2",
-      "targets": [
-        {
-          "alias": "$sensor",
-          "datasource": {
-            "type": "influxdb",
-            "uid": "_2YhzQigk"
-          },
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "sensor"
-              ],
-              "type": "tag"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "Smartthings",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "value"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "last"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "sensor",
-              "operator": "=",
-              "value": "contact_Etuovi"
-            }
-          ]
-        }
-      ],
-      "title": "Etuovi",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "influxdb",
-        "uid": "_2YhzQigk"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [
-            {
-              "options": {
-                "0": {
-                  "index": 1,
-                  "text": "kiinni"
-                },
-                "1": {
-                  "index": 0,
-                  "text": "auki"
-                }
-              },
-              "type": "value"
-            }
-          ],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 1
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 3,
-        "x": 15,
-        "y": 23
-      },
       "id": 34,
       "options": {
         "colorMode": "value",
@@ -1611,7 +1375,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.2",
+      "pluginVersion": "9.5.2",
       "targets": [
         {
           "alias": "$sensor",
@@ -1714,7 +1478,7 @@
       "gridPos": {
         "h": 4,
         "w": 3,
-        "x": 18,
+        "x": 15,
         "y": 23
       },
       "id": 35,
@@ -1732,7 +1496,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.2",
+      "pluginVersion": "9.5.2",
       "targets": [
         {
           "alias": "$sensor",
@@ -1835,7 +1599,7 @@
       "gridPos": {
         "h": 4,
         "w": 3,
-        "x": 21,
+        "x": 18,
         "y": 23
       },
       "id": 36,
@@ -1853,7 +1617,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.2",
+      "pluginVersion": "9.5.2",
       "targets": [
         {
           "alias": "$sensor",
@@ -1920,6 +1684,127 @@
       "fieldConfig": {
         "defaults": {
           "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "index": 1,
+                  "text": "kiinni"
+                },
+                "1": {
+                  "index": 0,
+                  "text": "auki"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 21,
+        "y": 23
+      },
+      "id": 31,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.5.2",
+      "targets": [
+        {
+          "alias": "$sensor",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "_2YhzQigk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "sensor"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "Smartthings",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "sensor",
+              "operator": "=",
+              "value": "contact_Etuovi"
+            }
+          ]
+        }
+      ],
+      "title": "Etuovi",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "_2YhzQigk"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
             "mode": "continuous-GrYlRd"
           },
           "decimals": 1,
@@ -1962,7 +1847,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.2",
+      "pluginVersion": "9.5.2",
       "targets": [
         {
           "alias": "$tag_sensor",
@@ -2071,7 +1956,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.2",
+      "pluginVersion": "9.5.2",
       "targets": [
         {
           "alias": "$tag_sensor",
@@ -2138,7 +2023,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "thresholds"
+            "mode": "continuous-GrYlRd"
           },
           "decimals": 1,
           "mappings": [],
@@ -2146,34 +2031,26 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-blue",
+                "color": "green",
                 "value": null
               },
               {
-                "color": "semi-dark-blue",
-                "value": 4
-              },
-              {
-                "color": "super-light-blue",
-                "value": 6
-              },
-              {
                 "color": "red",
-                "value": 8
+                "value": 80
               }
             ]
           },
-          "unit": "celsius"
+          "unit": "humidity"
         },
         "overrides": []
       },
       "gridPos": {
         "h": 4,
         "w": 4,
-        "x": 8,
+        "x": 12,
         "y": 27
       },
-      "id": 11,
+      "id": 41,
       "options": {
         "colorMode": "value",
         "graphMode": "area",
@@ -2188,7 +2065,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.2",
+      "pluginVersion": "9.5.2",
       "targets": [
         {
           "alias": "$tag_sensor",
@@ -2239,19 +2116,239 @@
             {
               "key": "sensor",
               "operator": "=",
-              "value": "temperature_Jaakaappi"
+              "value": "humidity_AMS"
             }
           ]
         }
       ],
-      "title": "Lämpötila jääkaappi",
+      "title": "AMS",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "_2YhzQigk"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "decimals": 1,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "humidity"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 16,
+        "y": 27
+      },
+      "id": 42,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.5.2",
+      "targets": [
+        {
+          "alias": "$tag_sensor",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "_2YhzQigk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "sensor"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "previous"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "Smartthings",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "sensor",
+              "operator": "=",
+              "value": "humidity_Box1"
+            }
+          ]
+        }
+      ],
+      "title": "Box1",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "_2YhzQigk"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "decimals": 1,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "humidity"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 20,
+        "y": 27
+      },
+      "id": 43,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.5.2",
+      "targets": [
+        {
+          "alias": "$tag_sensor",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "_2YhzQigk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "sensor"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "previous"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "Smartthings",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "sensor",
+              "operator": "=",
+              "value": "humidity_Box2"
+            }
+          ]
+        }
+      ],
+      "title": "Box2",
       "type": "stat"
     }
   ],
-  "refresh": "5s",
-  "schemaVersion": 36,
+  "refresh": "1m",
+  "schemaVersion": 38,
   "style": "dark",
-  "tags": [],
+  "tags": [
+    "Koti"
+  ],
   "templating": {
     "list": []
   },
@@ -2263,6 +2360,6 @@
   "timezone": "",
   "title": "Koti",
   "uid": "tBS2B6Rgk",
-  "version": 34,
+  "version": 45,
   "weekStart": ""
 }

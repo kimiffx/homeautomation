@@ -55,7 +55,7 @@
       "fillGradient": 0,
       "gridPos": {
         "h": 15,
-        "w": 16,
+        "w": 14,
         "x": 0,
         "y": 0
       },
@@ -79,7 +79,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "9.0.2",
+      "pluginVersion": "9.5.2",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -211,8 +211,8 @@
       },
       "gridPos": {
         "h": 4,
-        "w": 4,
-        "x": 16,
+        "w": 6,
+        "x": 14,
         "y": 0
       },
       "id": 14,
@@ -230,10 +230,305 @@
           "noData": true,
           "normal": true,
           "pending": true
-        }
+        },
+        "viewMode": "list"
       },
       "title": "Alarms",
       "type": "alertlist"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "_2YhzQigk"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 2,
+        "x": 20,
+        "y": 0
+      },
+      "id": 27,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.5.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "_2YhzQigk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "Nibe",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "sensor",
+              "operator": "=",
+              "value": "Exhaust fan speed"
+            }
+          ]
+        }
+      ],
+      "title": "Exhaust Fan",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "_2YhzQigk"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 2,
+        "x": 22,
+        "y": 0
+      },
+      "id": 26,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.5.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "_2YhzQigk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "Nibe",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "sensor",
+              "operator": "=",
+              "value": "Intake fan speed"
+            }
+          ]
+        }
+      ],
+      "title": "Intake Fan",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "_2YhzQigk"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "kwatt"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 2,
+        "x": 14,
+        "y": 4
+      },
+      "id": 11,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.5.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "_2YhzQigk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "Nibe",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "sensor",
+              "operator": "=",
+              "value": "Internal electrical addition power"
+            }
+          ]
+        }
+      ],
+      "title": "Max electric",
+      "type": "stat"
     },
     {
       "datasource": {
@@ -320,10 +615,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 4,
-        "w": 4,
-        "x": 20,
-        "y": 0
+        "h": 5,
+        "w": 2,
+        "x": 16,
+        "y": 4
       },
       "id": 12,
       "options": {
@@ -338,7 +633,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "9.0.2",
+      "pluginVersion": "9.5.2",
       "targets": [
         {
           "datasource": {
@@ -412,104 +707,6 @@
               }
             ]
           },
-          "unit": "kwatt"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 5,
-        "w": 2,
-        "x": 16,
-        "y": 4
-      },
-      "id": 11,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "9.0.2",
-      "targets": [
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "_2YhzQigk"
-          },
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "none"
-              ],
-              "type": "fill"
-            }
-          ],
-          "hide": false,
-          "measurement": "Nibe",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "value"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "last"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "sensor",
-              "operator": "=",
-              "value": "Internal electrical addition power"
-            }
-          ]
-        }
-      ],
-      "title": "Max electric",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "influxdb",
-        "uid": "_2YhzQigk"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              }
-            ]
-          },
           "unit": "none"
         },
         "overrides": []
@@ -535,7 +732,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.2",
+      "pluginVersion": "9.5.2",
       "targets": [
         {
           "datasource": {
@@ -634,7 +831,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.2",
+      "pluginVersion": "9.5.2",
       "targets": [
         {
           "datasource": {
@@ -732,7 +929,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.2",
+      "pluginVersion": "9.5.2",
       "targets": [
         {
           "datasource": {
@@ -811,8 +1008,8 @@
       },
       "gridPos": {
         "h": 3,
-        "w": 4,
-        "x": 16,
+        "w": 5,
+        "x": 14,
         "y": 9
       },
       "id": 19,
@@ -830,7 +1027,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.2",
+      "pluginVersion": "9.5.2",
       "targets": [
         {
           "datasource": {
@@ -909,8 +1106,8 @@
       },
       "gridPos": {
         "h": 3,
-        "w": 4,
-        "x": 20,
+        "w": 5,
+        "x": 19,
         "y": 9
       },
       "id": 23,
@@ -928,7 +1125,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.2",
+      "pluginVersion": "9.5.2",
       "targets": [
         {
           "datasource": {
@@ -994,8 +1191,8 @@
       },
       "gridPos": {
         "h": 3,
-        "w": 4,
-        "x": 16,
+        "w": 5,
+        "x": 14,
         "y": 12
       },
       "id": 21,
@@ -1013,7 +1210,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.2",
+      "pluginVersion": "9.5.2",
       "targets": [
         {
           "datasource": {
@@ -1079,8 +1276,8 @@
       },
       "gridPos": {
         "h": 3,
-        "w": 4,
-        "x": 20,
+        "w": 5,
+        "x": 19,
         "y": 12
       },
       "id": 22,
@@ -1098,7 +1295,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.2",
+      "pluginVersion": "9.5.2",
       "targets": [
         {
           "datasource": {
@@ -1175,7 +1372,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "9.0.2",
+      "pluginVersion": "9.5.2",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1371,7 +1568,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "9.0.2",
+      "pluginVersion": "9.5.2",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1472,7 +1669,7 @@
     }
   ],
   "refresh": "",
-  "schemaVersion": 36,
+  "schemaVersion": 38,
   "style": "dark",
   "tags": [
     "Nibe"
@@ -1488,6 +1685,6 @@
   "timezone": "",
   "title": "Nibe",
   "uid": "nAuM5zmRk",
-  "version": 57,
+  "version": 59,
   "weekStart": ""
 }
